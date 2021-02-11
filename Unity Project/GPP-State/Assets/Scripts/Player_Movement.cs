@@ -10,14 +10,14 @@ public class Player_Movement : MonoBehaviour
     private PlayerSettings _playerSettings;
     private CharacterController _characterController;
     private GroundChecker _groundChecker;
-    private Player_Ability[] _abilities;
+    private PlayerAbility[] _abilities;
 
     private StateMachine _stateMachine;
     public void Initilize(
         Player player,
         Camera camera,
         PlayerSettings playerSettings,
-        Player_Ability[] abilities,
+        PlayerAbility[] abilities,
         CharacterController characterController,
         GroundChecker groundChecker
 
@@ -37,13 +37,20 @@ public class Player_Movement : MonoBehaviour
     {
         _stateMachine = new StateMachine();
 
-        var run = new PMS_Run(_player, _playerSettings, _characterController, _groundChecker);
-        var jump = new PMS_Jump(_player, _playerSettings, _characterController, _groundChecker);
+        var normalRun = new PMS_Run(_player, _playerSettings, _characterController, _groundChecker);
+
+        var qSlot = compareState(_abilities[0], normalRun);
+        var eSlot = compareState(_abilities[1], normalRun);
+        var rSlot = compareState(_abilities[2], normalRun);
+        var fSlot = compareState(_abilities[3], normalRun);
+        var cSlot = compareState(_abilities[4], normalRun);
+
+
 
         //At(run, jump, JumpKeyAndGrounded());
         //At(jump, run, Landed());
 
-        _stateMachine.SetState(run);
+        _stateMachine.SetState(normalRun);
 
         void At(IState to, IState from, Func<bool> condition)
         {
@@ -61,4 +68,17 @@ public class Player_Movement : MonoBehaviour
         _stateMachine.Tick();
 
     }
+
+    private IState compareState(PlayerAbility abilityCheck, IState defaultState)
+    {
+        var testState = abilityCheck.GetMoveState(_player,_characterController);
+
+        if(testState != defaultState)
+        {
+            return abilityCheck.GetMoveState(_player, _characterController);
+        }
+
+        return defaultState;
+    }
+
 }

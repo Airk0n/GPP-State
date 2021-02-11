@@ -15,6 +15,12 @@ public class PLS_NormalMouseLook : IState
         _mainCamera = camera;
         _playerSettings = playerSettings;
     }
+
+    public bool AbilityCondition()
+    {
+        return false;
+    }
+
     public void OnEnter()
     {
         Cursor.lockState = CursorLockMode.Locked;

@@ -23,6 +23,12 @@ public class PMS_Jump : IState
         _groundChecker = groundChecker;
 
     }
+
+    public bool AbilityCondition()
+    {
+        return false;
+    }
+
     public void OnEnter()
     {
         _groundChecker.Jump();

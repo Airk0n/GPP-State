@@ -10,14 +10,14 @@ public class Player_Equipment : MonoBehaviour
     private PlayerSettings _playerSettings;
     private StateMachine _stateMachine;
     private CharacterController _characterController;
-    private Player_Ability[] _abilities;
+    private PlayerAbility[] _abilities;
 
 
     public void Initilize(
         Player player,
         Camera camera,
         PlayerSettings playerSettings,
-        Player_Ability[] abilities,
+        PlayerAbility[] abilities,
         CharacterController characterController
 
         )

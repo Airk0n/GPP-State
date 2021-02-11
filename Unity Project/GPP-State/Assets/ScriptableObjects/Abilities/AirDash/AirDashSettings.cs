@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "new airDash settings", menuName = "player/abilites/airDash")]
-public class PlayerAirDashSettings : Player_Ability
+[CreateAssetMenu(fileName = "New AirDash settings", menuName = "player/abilites/AirDash")]
+public class PlayerAirDashSettings : PlayerAbility
 {
     public FloatReference distance;
     public FloatReference speed;
@@ -13,7 +13,17 @@ public class PlayerAirDashSettings : Player_Ability
     {
         abilityType = AbilityType.AirDash;
     }
-    public override IState DefineState(Player player, CharacterController characterController, OrbLauncher orbLauncher)
+    public override IState GetMoveState(Player player, CharacterController characterController)
+    {
+        _airDashState = new PMS_AirDash(characterController, player);
+        return _airDashState;
+    }
+    public override IState GetLookState(Player player, CharacterController characterController)
+    {
+        _airDashState = new PMS_AirDash(characterController, player);
+        return _airDashState;
+    }
+    public override IState GetEquipState(Player player, CharacterController characterController)
     {
         _airDashState = new PMS_AirDash(characterController, player);
         return _airDashState;

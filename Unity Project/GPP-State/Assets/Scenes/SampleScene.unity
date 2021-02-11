@@ -2111,7 +2111,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58b27416156f8754c97c16c2e5375a2f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _abilities: []
+  _abilities:
+  - {fileID: 11400000, guid: 02a0dd72d1f66b74188ad4b332322432, type: 2}
+  - {fileID: 11400000, guid: 02a0dd72d1f66b74188ad4b332322432, type: 2}
+  - {fileID: 11400000, guid: 02a0dd72d1f66b74188ad4b332322432, type: 2}
+  - {fileID: 11400000, guid: 02a0dd72d1f66b74188ad4b332322432, type: 2}
+  - {fileID: 11400000, guid: 02a0dd72d1f66b74188ad4b332322432, type: 2}
   _playerMove: {fileID: 1398514697}
   _playerEquip: {fileID: 1398514698}
   _playerLook: {fileID: 1398514696}

@@ -17,6 +17,12 @@ public class PMS_Run : IState
         _characterController = characterController;
         _groundChecker = groundChecker;
     }
+
+    public bool AbilityCondition()
+    {
+        return false;
+    }
+
     public void OnEnter()
     {
 

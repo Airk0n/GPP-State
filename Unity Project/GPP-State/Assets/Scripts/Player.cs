@@ -5,7 +5,7 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     [Header("Abilities")]
-    [SerializeField] private Player_Ability[] _abilities;
+    [SerializeField] private PlayerAbility[] _abilities;
 
 
     [Header("StateMachines")]

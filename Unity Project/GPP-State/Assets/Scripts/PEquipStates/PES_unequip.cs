@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class PES_unequip : IState
 {
+    public bool AbilityCondition()
+    {
+        return false;
+    }
+
     public void OnEnter()
     {
         
@@ -18,4 +23,6 @@ public class PES_unequip : IState
     {
         
     }
+
+
 }

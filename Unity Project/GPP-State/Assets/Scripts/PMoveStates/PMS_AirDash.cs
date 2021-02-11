@@ -18,6 +18,12 @@ public class PMS_AirDash : IState
         _player = player;
         _characterController = characterController;
     }
+
+    public bool AbilityCondition()
+    {
+        return false;
+    }
+
     public void OnEnter()
     {
         _isAirDashing = true;
